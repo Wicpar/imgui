@@ -64,11 +64,11 @@ jar {
 shadowJar.archiveClassifier = 'all'
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "1.8"
     destinationDir = compileJava.destinationDir
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "1.8"
     destinationDir = compileTestJava.destinationDir
 }
 

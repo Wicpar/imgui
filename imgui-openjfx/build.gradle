@@ -82,12 +82,4 @@ compileTestKotlin {
 }
 
 compileJava {
-    doFirst {
-//        println("[$moduleName]classpath.asPath: $classpath.asPath")
-        options.compilerArgs = [
-                '--module-path', classpath.asPath,
-//                '--add-modules', 'javafx.graphics',
-        ]
-        classpath = files()
-    }
 }

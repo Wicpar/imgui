@@ -30,11 +30,5 @@ compileTestKotlin.kotlinOptions.jvmTarget = "1.8"
 
 compileJava {
     dependsOn(':compileKotlin')
-    doFirst {
-        options.compilerArgs = [
-                '--module-path', classpath.asPath,
-        ]
-        classpath = files()
-    }
     destinationDir = compileKotlin.destinationDir
 }

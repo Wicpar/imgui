@@ -1,7 +1,6 @@
 package imgui.impl.gl
 
 import glm_.L
-import gln.GlBufferEnum
 import gln.ShaderType.Companion.FRAGMENT_SHADER
 import gln.ShaderType.Companion.VERTEX_SHADER
 import gln.buffer.GlBufferDsl
@@ -145,7 +144,7 @@ fun createProgram(): GlProgram {
 }
 
 
-enum class Buffer : GlBufferEnum {
+enum class Buffer {
     Vertex, Element;
 
     companion object {

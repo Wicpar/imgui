@@ -1,9 +1,9 @@
 package imgui
 
-import com.sun.jdi.Bootstrap
-import com.sun.jdi.VirtualMachine
-import com.sun.jdi.connect.AttachingConnector
-import com.sun.jdi.connect.Connector
+//import com.sun.jdi.Bootstrap
+//import com.sun.jdi.VirtualMachine
+//import com.sun.jdi.connect.AttachingConnector
+//import com.sun.jdi.connect.Connector
 import glm_.glm
 import glm_.i
 import glm_.vec2.Vec2
@@ -193,7 +193,7 @@ class IO(sharedFontAtlas: FontAtlas?) {
     on IO.DeltaTime over 120 frames */
     var framerate = 0f
     /** Number of active memory allocations */
-    val metricsAllocs get() = Debug.instanceCounts
+    //val metricsAllocs get() = Debug.instanceCounts
     /** Vertices output during last call to Render()    */
     var metricsRenderVertices = 0
     /** Indices output during last call to Render() = number of triangles * 3   */
@@ -588,15 +588,15 @@ class Style {
     }
 }
 
-object Debug {
+//object Debug {
 
-    var vm: VirtualMachine? = null
-    /** Instance count update interval in seconds   */
-    var updateInterval = 5
-    private var lastUpdate = System.nanoTime()
+//    var vm: VirtualMachine? = null
+//    /** Instance count update interval in seconds   */
+//    var updateInterval = 5
+//    private var lastUpdate = System.nanoTime()
 
-    init {
-        try {
+//    init {
+//        try {
 //            val ac: AttachingConnector = Bootstrap.virtualMachineManager().attachingConnectors().find {
 //                it.javaClass.name.toLowerCase().indexOf("socket") != -1
 //            } ?: throw Error("No socket attaching connector found")
@@ -605,25 +605,25 @@ object Debug {
 //            connectArgs["port"]!!.setValue(3001.toString())
 //            connectArgs["timeout"]!!.setValue("3000")
 //            vm = ac.attach(connectArgs)
-        } catch (error: Exception) {
-            System.err.println("Couldn't retrieve the number of allocations, $error")
-        }
-    }
+//        } catch (error: Exception) {
+//            System.err.println("Couldn't retrieve the number of allocations, $error")
+//        }
+//    }
 
-    val instanceCounts: Long
-        get() {
-            val now = System.nanoTime()
-            if ((now - lastUpdate) > updateInterval * 1e9) {
-                cachedInstanceCounts = countInstances()
-                lastUpdate = now
-            }
-            return cachedInstanceCounts
-        }
+//    val instanceCounts: Long
+//        get() {
+//            val now = System.nanoTime()
+//            if ((now - lastUpdate) > updateInterval * 1e9) {
+//                cachedInstanceCounts = countInstances()
+//                lastUpdate = now
+//            }
+//            return cachedInstanceCounts
+//        }
 
-    private fun countInstances() = vm?.instanceCounts(vm?.allClasses())?.sum() ?: -1
+//    private fun countInstances() = vm?.instanceCounts(vm?.allClasses())?.sum() ?: -1
 
-    private var cachedInstanceCounts = countInstances()
-}
+//    private var cachedInstanceCounts = countInstances()
+//}
 
 /** for style.colors    */
 operator fun ArrayList<Vec4>.get(idx: Col) = this[idx.i]

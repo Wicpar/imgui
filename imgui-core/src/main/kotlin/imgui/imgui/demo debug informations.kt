@@ -198,7 +198,7 @@ interface imgui_demoDebugInformations {
         text("Application average %.3f ms/frame (%.1f FPS)", 1000f / io.framerate, io.framerate)
         text("${io.metricsRenderVertices} vertices, ${io.metricsRenderIndices} indices (${io.metricsRenderIndices / 3} triangles)")
         text("${io.metricsActiveWindows} active windows (${io.metricsRenderWindows} visible)")
-        text("${io.metricsAllocs} active allocations")
+        //text("${io.metricsAllocs} active allocations")
         separator()
 
         Funcs.nodeWindows(g.windows, "Windows")

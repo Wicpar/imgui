@@ -4,7 +4,6 @@ import com.jogamp.opengl.GL2ES3
 import com.jogamp.opengl.GL3
 import glm_.BYTES
 import glm_.mat4x4.Mat4
-import gln.GlBufferEnum
 import gln.glf.semantic
 import kool.ByteBuffer
 import kool.IntBuffer
@@ -71,7 +70,7 @@ val fragmentShader: String
 
 val mouseJustPressed = BooleanArray(5)
 
-enum class Buffer : GlBufferEnum { Vertex, Element;
+enum class Buffer { Vertex, Element;
 
     companion object {
         val MAX = values().size

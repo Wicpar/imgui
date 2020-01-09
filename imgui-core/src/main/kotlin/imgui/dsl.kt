@@ -344,15 +344,23 @@ object dsl {
     // Tab Bars, Tabs
 
     inline fun tabBar(strId: String, flags: TabBarFlags = 0, block: () -> Unit) {
-        if (ImGui.beginTabBar(strId, flags))
-            block()
-        ImGui.endTabBar()
+        if (ImGui.beginTabBar(strId, flags)) {
+            try {
+                block()
+            } finally {
+                ImGui.endTabBar()
+            }
+        }
     }
 
     inline fun tabItem(label: String, pOpen: KMutableProperty0<Boolean>? = null, flags: TabItemFlags = 0, block: () -> Unit) {
-        if (ImGui.beginTabItem(label, pOpen, flags))
-            block()
-        ImGui.endTabItem()
+        if (ImGui.beginTabItem(label, pOpen, flags)) {
+            try {
+                block()
+            } finally {
+                ImGui.endTabItem()
+            }
+        }
     }
 
 
